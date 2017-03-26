@@ -486,6 +486,8 @@ public class GameMenu extends Application {
         public GameText(String text, double size, double maxWidth){
             super(text);
             setFont(new Font("Alegreya Sans SC", size));
+            if (getFont().getName().equals("System Regular"))
+                setFont(new Font("Roboto Black Regular", size * 0.8));
             setFill(Color.WHITE);
             setWrappingWidth(maxWidth);
         }
@@ -494,11 +496,13 @@ public class GameMenu extends Application {
     /**
      *  En label class som används när programmet ska använda vanliga labels.
      */
-    public class GameLabel extends Label{
+    public static class GameLabel extends Label{
 
         public GameLabel(String text, double size){
             super(text);
             setFont(new Font("Alegreya Sans SC", size));
+            if (getFont().getName().equals("System Regular"))
+                setFont(new Font("Roboto Black Regular", size * 0.8));
             setTextFill(Color.WHITE);
             autosize();
         }
@@ -513,6 +517,9 @@ public class GameMenu extends Application {
             super(text);
 
             setFont(new Font("Alegreya Sans SC", size / 3));
+            if (getFont().getName().equals("System Regular"))
+                setFont(new Font("Roboto Black Regular", (size * 0.8) / 3));
+
             setTextFill(Color.WHITE);
 
             setOnMouseEntered( e -> {
@@ -526,5 +533,6 @@ public class GameMenu extends Application {
             autosize();
 
         }
+
     }
 }
