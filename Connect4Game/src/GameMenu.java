@@ -486,6 +486,7 @@ public class GameMenu extends Application {
         public GameText(String text, double size, double maxWidth){
             super(text);
             setFont(new Font("Alegreya Sans SC", size));
+            // Alegreya Sans SC finns inte i Ubuntu så sätter en annan font
             if (getFont().getName().equals("System Regular"))
                 setFont(new Font("Roboto Black Regular", size * 0.8));
             setFill(Color.WHITE);
@@ -501,6 +502,7 @@ public class GameMenu extends Application {
         public GameLabel(String text, double size){
             super(text);
             setFont(new Font("Alegreya Sans SC", size));
+            // Alegreya Sans SC finns inte i Ubuntu så sätter en annan font
             if (getFont().getName().equals("System Regular"))
                 setFont(new Font("Roboto Black Regular", size * 0.8));
             setTextFill(Color.WHITE);
@@ -517,6 +519,7 @@ public class GameMenu extends Application {
             super(text);
 
             setFont(new Font("Alegreya Sans SC", size / 3));
+            // Alegreya Sans SC finns inte i Ubuntu så sätter en annan font
             if (getFont().getName().equals("System Regular"))
                 setFont(new Font("Roboto Black Regular", (size * 0.8) / 3));
 
