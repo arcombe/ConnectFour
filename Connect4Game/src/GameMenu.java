@@ -35,7 +35,6 @@ public class GameMenu extends Application {
     private StackPane historyPane;
     private StackPane helpPane;
 
-
     /**
      * Körs när man startar applicationen och sätter upp grunden.
      */
@@ -462,7 +461,7 @@ public class GameMenu extends Application {
                 "Highscore in startmenu.", size, maxWidth);
 
         GameText history = new GameText("History from previous games can be viewed by clicking on History in " +
-                "startmenu then choosing a game and click on show.", size, maxWidth);
+                "startmenu then choosing a game and clicking on show.", size, maxWidth);
 
         GameText haveFun = new GameText("Have fun playing Connect Four and may the " +
                 "best player win!", size, maxWidth);
