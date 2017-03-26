@@ -383,8 +383,8 @@ public class BoardView {
         /*  Kollar om spelare redan finns, ifall inte skrivs den in i databasen
             som ny spelare. Gäster skrivs inte in
          */
-        if(!isGuest1 && db.getPlayer(player1Name).isEmpty()) db.newPlayer(player1Name);
-        if(!isGuest2 && db.getPlayer(player2Name).isEmpty()) db.newPlayer(player2Name);
+        if(!isGuest1 && db.getPlayer(player1Name) == null) db.newPlayer(player1Name);
+        if(!isGuest2 && db.getPlayer(player2Name) == null) db.newPlayer(player2Name);
 
         /*  Med spelets resultat uppdateras databasen med spelarnas namn, inget görs om spelaren är
             gäst

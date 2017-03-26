@@ -6,8 +6,7 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * Database is a class that specifies the interface to the movie
- * database. Uses JDBC.
+ * Database is a class that specifies the interface to the playerDatabase. Uses JDBC.
  */
 public class Database {
 
@@ -62,8 +61,12 @@ public class Database {
         return conn != null;
     }
 
-    public List<Player> getPlayer(String name) {
-        List<Player> found = new LinkedList<>();
+    /**
+     *  Hämtar en spelare från databasen.
+     *  @return Spelaren ifall han finns i databasen annars null.
+     */
+    public Player getPlayer(String name) {
+        Player found = null;
         try {
             String sql =
                     "select * " +
@@ -73,7 +76,7 @@ public class Database {
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                found.add(new Player(rs));
+                found = new Player(rs);
             }
             return found;
         } catch (SQLException e) {
@@ -84,6 +87,10 @@ public class Database {
         return found;
     }
 
+    /**
+     *  Hämtar top 10 spelare i databasen eller så många det finns.
+     *  @return En lista med de 10 bästa spelarna eller så många det finns i databasen.
+     */
     public List<Player> getTopTenPlayer() {
         List<Player> found = new LinkedList<>();
         try {
@@ -106,6 +113,10 @@ public class Database {
         return found;
     }
 
+    /**
+     *  Uppdaterar en spelare från databasen.
+     *  @return Hur många spelare som påvärkades i databasen.
+     */
     public int updatePlayerStats(String name, String type){
         try {
             String sql;
@@ -137,6 +148,10 @@ public class Database {
         return 0;
     }
 
+    /**
+     *  Lägger till en ny spelare i databasen.
+     *  @return Antalet spelare som lades till.
+     */
     public int newPlayer(String name){
         try {
             String sql =
@@ -154,6 +169,10 @@ public class Database {
         return 0;
     }
 
+    /**
+     *  Lägger till ett nytt game i databasen.
+     *  @return Antalet games som lades till.
+     */
     public int newGame(String playerNameRed, String playerNameYellow){
         try {
             String sql =
