@@ -39,6 +39,7 @@ public class GameMenu extends Application {
     /**
      * Körs när man startar applicationen och sätter upp grunden.
      */
+    @Override
     public void start(Stage primaryStage) throws Exception {
 
         // Skapar ett nytt objekt av Database som hanterar all data med databasen.
@@ -232,6 +233,9 @@ public class GameMenu extends Application {
         player1Part.alignmentProperty().bind(layout.alignmentProperty());
         GameLabel player1 = new GameLabel("Player Red: ", size / 3);
         TextField player1TextField = new TextField();
+        //player1TextField.setPrefSize(newGamePane.getWidth() / 4, newGamePane.getHeight() / 40);
+        //player1TextField.setMaxSize(Control.USE_PREF_SIZE, Control.USE_PREF_SIZE);
+        player1TextField.setFont(new Font(size / 4));
         // Promptext gör att man kan start spelet och spela som gäst.
         player1TextField.setPromptText("Red");
         player1Part.getChildren().addAll(player1, player1TextField);
@@ -241,6 +245,7 @@ public class GameMenu extends Application {
         player2Part.alignmentProperty().bind(layout.alignmentProperty());
         GameLabel player2 = new GameLabel("Player Yellow: ", size / 3);
         TextField player2TextField = new TextField();
+        player2TextField.setFont(new Font(size / 4));
         // Promptext gör att man kan start spelet och spela som gäst.
         player2TextField.setPromptText("Yellow");
         player2Part.getChildren().addAll(player2, player2TextField);
@@ -250,7 +255,7 @@ public class GameMenu extends Application {
         columnsAndRows.setSpacing(10);
         columnsAndRows.alignmentProperty().bind(newGamePane.alignmentProperty());
         GameLabel columns = new GameLabel("Columns", size / 3);
-        ComboBox comboColumn = new ComboBox();
+        ComboBox<Integer> comboColumn = new ComboBox();
         comboColumn.setValue(7);
         comboColumn.getItems().addAll(4,5,6,7,8,9,10);
         GameLabel rows = new GameLabel("Rows", size / 3);
@@ -398,7 +403,7 @@ public class GameMenu extends Application {
                 showGame.getItems().clear();
                 for (Move move : moves){
                     if (red)
-                        showGame.getItems().add("Move " + move.moveID + " " + game.playerNameRed +
+                        showGame.getItems().add( "Move " + move.moveID + " " + game.playerNameRed +
                                 " placed disc on column " + move.column + ", row " + move.row);
                     else
                         showGame.getItems().add("Move " + move.moveID + " " + game.playerNameYellow +
@@ -448,15 +453,15 @@ public class GameMenu extends Application {
                 " of one's own discs. Connect Four is a solved game. " +
                 "The first player can always win by playing the right moves.", size, maxWidth);
 
-        GameText start = new GameText("Start game by clicking on new game in startmenu and name the players then " +
+        GameText start = new GameText("Start game by clicking on new game in Startmenu and name the players then " +
                 "click on Start Game. You also have the choice of changing the number of columns and rows. If no name is " +
-                "entered on a player that player is a guest and the result won't be registered in highscores.",
+                "entered on a player that player plays as a guest and their result won't be registered in highscores.",
                 size, maxWidth);
 
-        GameText highscore = new GameText("Top ten players can be view by clicking on " +
+        GameText highscore = new GameText("Top ten players can be viewed by clicking on " +
                 "Highscore in startmenu.", size, maxWidth);
 
-        GameText history = new GameText("History from previous games can be viewed by clicking on history in " +
+        GameText history = new GameText("History from previous games can be viewed by clicking on History in " +
                 "startmenu then choosing a game and click on show.", size, maxWidth);
 
         GameText haveFun = new GameText("Have fun playing Connect Four and may the " +
@@ -476,6 +481,10 @@ public class GameMenu extends Application {
      */
     public void mainMenu(){
         scene.setRoot(startPane);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 
     /**
@@ -538,4 +547,5 @@ public class GameMenu extends Application {
         }
 
     }
+
 }
