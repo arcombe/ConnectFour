@@ -4,6 +4,7 @@
     <root id="archive" name="Connect4Game.jar">
       <element id="module-output" name="Connect4Game" />
       <element id="extracted-dir" path="$PROJECT_DIR$/sqlite-jdbc-3.16.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="sqlite-jdbc-3.16.1" />
     </root>
   </artifact>
 </component>
