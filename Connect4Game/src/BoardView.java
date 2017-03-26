@@ -117,7 +117,7 @@ public class BoardView {
         root.getChildren().clear();
 
         // Sätter värdena som används för att bygga fönstret
-        discSize = Math.min(root.getWidth(), root.getHeight()) / ((Math.max(COLUMNS, ROWS) <= 5 ? 6 : Math.max(COLUMNS, ROWS)) * 1.5);
+        discSize = Math.min(root.getWidth(), root.getHeight()) / ((Math.max(COLUMNS, ROWS) <= 5 ? 6 : Math.max(COLUMNS, ROWS)) * 1.6);
 
         xMargin = discSize / COLUMNS;
         yMargin = discSize / ROWS;
@@ -391,7 +391,7 @@ public class BoardView {
         // Skapar en VBox för att hålla innehållet
         VBox layout = new VBox();
         layout.alignmentProperty().bind(root.alignmentProperty());
-        layout.setSpacing(root.getHeight() * 0.7);
+        layout.setSpacing(root.getHeight() * 0.72);
 
         // Skapar en Hbox för att hålla rematch och menu.
         HBox options = new HBox();
